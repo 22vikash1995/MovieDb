@@ -2,6 +2,7 @@ package com.example.movie.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
@@ -30,8 +31,10 @@ class MainActivity : AppCompatActivity() {
 
     private fun setUpUiData() {
         //make api call
-        viewModel.getMovieData()
-        //getting response
+        viewModel.getAllData()
+       /* viewModel.getMovieData()
+        viewModel.getPopularMovieData()
+        //getting now playing movie response
         viewModel.apiResponse.observe(this, Observer {
             if (it != null) {
                 moviesAdapter.result = it.results
@@ -40,6 +43,15 @@ class MainActivity : AppCompatActivity() {
                 Toast.makeText(this, "There is some error!", Toast.LENGTH_SHORT).show()
             }
         })
+        //getting popular movie response
+        viewModel.popularMovie.observe(this, Observer {
+            if (it != null) {
+                Log.d("popularMovie", it.toString())
+                activityMainBinding.validationTextForSearch.visibility = View.GONE
+            } else {
+                Toast.makeText(this, "There is some error!", Toast.LENGTH_SHORT).show()
+            }
+        })*/
         //control the progress bar
         viewModel.isProgressShowing.observe(this, Observer {
             if (it) {

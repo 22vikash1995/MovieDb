@@ -16,5 +16,5 @@ interface ApiService {
 
     @GET("popular")
     @Headers("Authorization:${Constant.TOKEN},accept:${Constant.CONTENT_TYPE}")
-    fun getPopularMovie(@Query("api_key") api_key: String): Call<PopularMovieModel>
+    suspend fun getPopularMovie(@Query("api_key") api_key: String): Response<PopularMovieModel>
 }
