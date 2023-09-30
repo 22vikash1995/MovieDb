@@ -76,6 +76,8 @@ class PopularMovieViewModel @Inject constructor(val apiService: ApiService) : Vi
                  if (call1.isSuccessful&&call2.isSuccessful){
                      Log.d("call1_data:-",call1.body().toString())
                      Log.d("call2_data:-",call2.body().toString())
+                     apiResponse.postValue(call1.body())
+                     popularMovie.postValue(call2.body())
                  }
              }
          }catch (e:Exception){

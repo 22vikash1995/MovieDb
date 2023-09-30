@@ -23,7 +23,6 @@ class MovieAdapter : RecyclerView.Adapter<MovieAdapter.MovieViewHolder>() {
                     .load(Constant.IMAGE_BASE_URL+result.poster_path)
                     .placeholder(R.drawable.ic_movie)
                     .into(binding.imageOfMovies)
-
                 //setting textual data
                 binding.titleOfMovie.text = result.original_title
                 binding.descriptionOfMovie.text = result.overview

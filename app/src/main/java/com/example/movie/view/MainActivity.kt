@@ -32,6 +32,16 @@ class MainActivity : AppCompatActivity() {
     private fun setUpUiData() {
         //make api call
         viewModel.getAllData()
+
+        //Now playing data
+        viewModel.apiResponse.observe(this, Observer {
+           if (it!=null) Log.d("NowPlaying",it.toString())
+        })
+
+        viewModel.popularMovie.observe(this, Observer {
+            if (it!=null) Log.d("Popular",it.toString())
+        })
+
        /* viewModel.getMovieData()
         viewModel.getPopularMovieData()
         //getting now playing movie response
